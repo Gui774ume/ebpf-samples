@@ -11,11 +11,7 @@ import (
 import "C"
 
 const source string = `
-#include <uapi/linux/ptrace.h>
-#include <uapi/linux/limits.h>
-#include <linux/sched.h>
-
-int trace_entry(struct pt_regs *ctx, int dfd, const char __user *filename, int flags)
+int trace_entry(struct pt_regs *ctx)
 {
 	bpf_trace_printk("gobpf-bcc hello!\n");
     return 0;
